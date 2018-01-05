@@ -9,22 +9,22 @@ var escape_double_quote = (s) => {
 }
 
 var build = (v) => {
-	var val
 	if(v.constructor.name == 'Atom') {
 		return v.name
 	} else if(typeof v == 'number') {
 		return v.toString()
 	} else if(typeof v == 'string') {
-		val = `"${escape_double_quote(v)}"`
+		return `"${escape_double_quote(v)}"`
 	} else if (Array.isArray(v)) {
-		val = array_to_list(v)
+		return array_to_list(v)
 	} else if (typeof v == 'object') {
-		val = dict_to_assoc(v)
+		return dict_to_assoc(v)
+	} else if (typeof v == 'boolean') {
+		return v ? "#t" : "#f"
 	} else {
-		console.log(typeof v)
+		console.error(typeof v)
 		throw 'Unsupported type'
 	}
-	return val
 }
 
 var array_to_list = (a) => {
