@@ -28,7 +28,7 @@ var build = (v) => {
 }
 
 var array_to_list = (a) => {
-	var l = []
+	var l = ["list"]
 	a.forEach((e) => {
 		l.push(build(e))
 	})
@@ -39,7 +39,7 @@ var dict_to_assoc = (d) => {
 	var l = []
 	Object.keys(d).forEach((k) => {
 		var v = build(d[k])
-		l.push(`("${k}" . ${v})`)
+		l.push(`(${k} . ${v})`)
 	})
 
 	return `(${l.join(" ")})`
