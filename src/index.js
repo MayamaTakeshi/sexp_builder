@@ -9,7 +9,9 @@ var escape_double_quote = (s) => {
 }
 
 var build = (v) => {
-	if(v.constructor.name == 'Atom') {
+	if(!v) {
+		return "'null"
+	} else if(v.constructor.name == 'Atom') {
 		return v.name
 	} else if(typeof v == 'number') {
 		return v.toString()
@@ -28,7 +30,7 @@ var build = (v) => {
 }
 
 var array_to_list = (a) => {
-	var l = ["list"]
+	var l = []
 	a.forEach((e) => {
 		l.push(build(e))
 	})
@@ -36,7 +38,7 @@ var array_to_list = (a) => {
 }
 
 var dict_to_assoc = (d) => {
-	var l = []
+	var l = ['assoc']
 	Object.keys(d).forEach((k) => {
 		var v = build(d[k])
 		l.push(`(${k} . ${v})`)
