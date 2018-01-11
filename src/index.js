@@ -38,13 +38,13 @@ var array_to_list = (a) => {
 }
 
 var dict_to_assoc = (d) => {
-	var l = ['assoc']
+	var l = []
 	Object.keys(d).forEach((k) => {
 		var v = build(d[k])
 		l.push(`(${k} . ${v})`)
 	})
 
-	return `(${l.join(" ")})`
+	return `(assoc (${l.join(" ")}))`
 }
 
 
