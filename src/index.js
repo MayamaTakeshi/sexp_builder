@@ -1,4 +1,4 @@
-class Symbol {
+class _Symbol {
   constructor(name) {
     this.name = name;
   }
@@ -11,7 +11,7 @@ var escape_double_quote = (s) => {
 var build = (v) => {
 	if(!v) {
 		return "'null"
-	} else if(v.constructor.name == 'Symbol') {
+	} else if(v.constructor.name == '_Symbol') {
 		return v.name
 	} else if(typeof v == 'number') {
 		return v.toString()
@@ -41,7 +41,7 @@ var dict_to_assoc = (d) => {
 	var l = []
 	Object.keys(d).forEach((k) => {
 		var v = build(d[k])
-		l.push(`(${k} . ${v})`)
+		l.push(`("${k}" . ${v})`)
 	})
 
 	return `(assoc (${l.join(" ")}))`
@@ -49,7 +49,7 @@ var dict_to_assoc = (d) => {
 
 
 var symbol = (n) => {
-	return new Symbol(n)
+	return new _Symbol(n)
 }
 
 module.exports = {
