@@ -1,4 +1,4 @@
-class Atom {
+class Symbol {
   constructor(name) {
     this.name = name;
   }
@@ -11,7 +11,7 @@ var escape_double_quote = (s) => {
 var build = (v) => {
 	if(!v) {
 		return "'null"
-	} else if(v.constructor.name == 'Atom') {
+	} else if(v.constructor.name == 'Symbol') {
 		return v.name
 	} else if(typeof v == 'number') {
 		return v.toString()
@@ -48,12 +48,12 @@ var dict_to_assoc = (d) => {
 }
 
 
-var atom = (n) => {
-	return new Atom(n)
+var symbol = (n) => {
+	return new Symbol(n)
 }
 
 module.exports = {
-	atom: atom,
+	symbol: symbol,
 	build: build,
 }
 
