@@ -4,6 +4,13 @@ class _Symbol {
   }
 }
 
+class _DottedPair {
+  constructor(left, right) {
+    this.left = left
+	this.right = right
+  }
+}
+
 var escape_double_quote = (s) => {
 	return s.replace(/"/g, '\\"')
 }
@@ -13,6 +20,10 @@ var build = (v) => {
 		return "'null"
 	} else if(v.constructor.name == '_Symbol') {
 		return v.name
+	} else if(v.constructor.name == 'Symbol') {
+		return v.toString().slice(7,-1)
+	} else if(v.constructor.name == '_DottedPair') {
+		return "(" + build(v.left) + " . " + build(v.right) + ")"
 	} else if(typeof v == 'number') {
 		return v.toString()
 	} else if(typeof v == 'string') {
@@ -52,8 +63,13 @@ var symbol = (n) => {
 	return new _Symbol(n)
 }
 
+var dottedPair = (l, r) => {
+	return new _DottedPair(l, r)
+}
+
 module.exports = {
 	symbol: symbol,
+	dottedPair: dottedPair,
 	build: build,
 }
 
