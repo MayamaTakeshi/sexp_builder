@@ -1,13 +1,13 @@
 {
   "name": "sexp_builder",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Converts javascript values to s-expressions",
   "main": "src/index.js",
   "repository": "https://MayamaTakeshi@github.com/MayamaTakeshi/sexp_builder",
   "author": "MayamaTakeshi <mayamatakeshi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^22.0.4"
+    "jest": "^24.8.0"
   },
   "scripts": {
     "test": "node_modules/jest/bin/jest.js"
