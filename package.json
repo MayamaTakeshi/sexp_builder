@@ -6,11 +6,11 @@
   "repository": "https://MayamaTakeshi@github.com/MayamaTakeshi/sexp_builder",
   "author": "MayamaTakeshi <mayamatakeshi@gmail.com>",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^25.3.0"
+  },
   "scripts": {
     "test": "node_modules/jest/bin/jest.js"
   },
-  "dependencies": {
-    "jest": "^24.8.0"
-  }
+  "dependencies": {}
 }
