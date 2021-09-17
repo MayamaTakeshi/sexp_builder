@@ -13,6 +13,7 @@
     "test": "node_modules/jest/bin/jest.js"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "set-value": ">=4.0.1"
   }
 }
