@@ -52,7 +52,7 @@ var dict_to_assoc = (d) => {
 	var l = []
 	Object.keys(d).forEach((k) => {
 		var v = build(d[k])
-		l.push(`("${k}" . ${v})`)
+		l.push(`(${k} . ${v})`)
 	})
 
 	return `(assoc (${l.join(" ")}))`
